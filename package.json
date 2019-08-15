@@ -1,6 +1,9 @@
 {
   "name": "jobtracker",
   "version": "1.0.0",
+  "engines": {
+      "node": "12.8.1"
+  },
   "description": "jobtracker fullstack project",
   "main": "server.js",
   "scripts": {
