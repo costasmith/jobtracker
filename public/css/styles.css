@@ -1,0 +1,13 @@
+/* <style media="screen"> */
+  body {
+    background-color: orange;
+    font-family: fantasy;
+    font-size: 17px;
+    text-align: center;
+  }
+  form {
+    display:flex;
+    flex-grow: 5;
+    flex-shrink: 1;
+  }
+/* </style> */
