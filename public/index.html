@@ -2,7 +2,10 @@
 <html lang="en" dir="ltr" ng-app="JobApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Job Tracker</title>
+    <!-- ====== scripts ====== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
     <style media="screen">
       body {
         background-color: orange;
@@ -15,7 +18,9 @@
     <script src="" charset="utf-8"></script>
   </head>
   <body ng-controller="JobController as ctrl">
-    <form class="" action="index.html" method="post">
+    <form ng-submit="ctrl.createdJob()">
+      <input type="text" ng-model="ctrl.position" placeholder="position"/>
+      <input type="submit" name="" value="Submit">
 
     </form>
     Troy Costa HyoSung

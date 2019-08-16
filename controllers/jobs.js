@@ -1,12 +1,13 @@
 //  dependencies
 const express = require('express')
 const router = express.Router()
-const Job = require('../models/job.js')
+const Jobs = require('../models/jobs.js')
 
- // routes
+ // Routes
 
+// create
 router.post('/', (req, res) => {
-  Job.create(req.body, (error, createdJob) => {
+  Jobs.create(req.body, (error, createdJob) => {
     res.json(createdJob)
     console.log(createdJob);
   })
@@ -14,4 +15,4 @@ router.post('/', (req, res) => {
 
 
 // export
-module.exports = router 
+module.exports = router

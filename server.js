@@ -8,6 +8,9 @@ const db = mongoose.connection;
 
 const PORT = process.env.PORT || 3000;
 
+const jobsController = require('./controllers/jobs.js')
+app.use('/jobs', jobsController)
+
 //___________________
 //Database
 //___________________
@@ -40,5 +43,5 @@ mongoose.connection.once('open', () => {
 
 //listener
 app.listen(PORT, () =>{
-  console.log( 'Hello Mate! Welcom to port: ')
+  console.log( 'Hello Mate! Welcome to port: ')
 })

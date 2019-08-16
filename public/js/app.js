@@ -5,7 +5,7 @@ app.controller('JobController', ['$http', function ($http) {
   const controller = this
 
   // create
-  this.createdJob = function () {
+  this.createJob = function () {
     $http({
       method: 'POST',
       url: '/jobs',
@@ -26,7 +26,7 @@ app.controller('JobController', ['$http', function ($http) {
         console.log(response)
         // controller.getJobs()
       }, function (error) {
-        console.log('error');
+        console.log(error);
       }
     )
   }
