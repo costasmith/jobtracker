@@ -8,6 +8,9 @@ const db = mongoose.connection;
 
 const PORT = process.env.PORT || 3000;
 
+const jobsController = require('./controllers/jobs.js')
+app.use('/jobs', jobsController)
+
 //___________________
 //Database
 //___________________
@@ -16,31 +19,29 @@ const PROJECT3_DB = process.env.PROJECT3_DB;
 console.log(process.env);
 console.log(process.env.PROJECT3_DB);
 
-// Fix Depreciation Warnings from Mongoose*
-// May or may not need these depending on your Mongoose version
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-
-app.get('/', (req,res) => {
-  res.send('hiya')
-})
-
-
-//db connection
-mongoose.connect(PROJECT3_DB, {useNewUrlParser: true})
-
-mongoose.connection.once('open', () => {
-  console.log('connected to monkey ...');
-})
-
 // middleware
 //use public folder for static assets
 app.use(express.static('public'));
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 
+// Fix Depreciation Warnings from Mongoose*
+// May or may not need these depending on your Mongoose version
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
+app.get('/', (req,res) => {
+  res.render('/')
+})
+
+//db connection
+mongoose.connect(PROJECT3_DB, {useNewUrlParser: true})
+
+mongoose.connection.once('open', () => {
+  console.log('connected to monkey ...')
+})
 
 //listener
 app.listen(PORT, () =>{
-  console.log( 'Hello Mate! Welcom to port: ')
-});
+  console.log( 'Hello Mate! Welcome to port: ')
+})
