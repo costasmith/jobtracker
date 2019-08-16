@@ -22,7 +22,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 app.get('/', (req,res) => {
-  res.send('hiya')
+  res.redirect('/index.html')
 })
 
 
