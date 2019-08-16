@@ -1,3 +1,2 @@
 node_modules
 dotenv
-git rm -r --cached node_modules

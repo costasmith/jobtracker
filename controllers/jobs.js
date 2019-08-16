@@ -13,6 +13,20 @@ router.post('/', (req, res) => {
   })
 })
 
+// index route
+router.get('/', (req, res) => {
+  Jobs.find({}, (error, foundJobs) => {
+    res.json(foundJobs)
+  })
+})
+
+// edit/update route
+router.put('/:id', (req, res) => {
+  Jobs.findByIdAndUpdate(req.params.id, req.body, {new: true},
+  (error, updatedJob) => {
+    res.json(updatedJob)
+  })
+})
 
 // export
 module.exports = router
