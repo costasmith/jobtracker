@@ -16,13 +16,19 @@ const PROJECT3_DB = process.env.PROJECT3_DB;
 console.log(process.env);
 console.log(process.env.PROJECT3_DB);
 
+// middleware
+//use public folder for static assets
+app.use(express.static('public'));
+app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
+
+
 // Fix Depreciation Warnings from Mongoose*
 // May or may not need these depending on your Mongoose version
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 app.get('/', (req,res) => {
-  res.send('what what?')
+  res.render('/')
 })
 
 //db connection
@@ -31,13 +37,6 @@ mongoose.connect(PROJECT3_DB, {useNewUrlParser: true})
 mongoose.connection.once('open', () => {
   console.log('connected to monkey ...')
 })
-
-// middleware
-//use public folder for static assets
-app.use(express.static('public'));
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
-
-
 
 //listener
 app.listen(PORT, () =>{
