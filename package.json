@@ -2,7 +2,7 @@
   "name": "jobtracker",
   "version": "1.0.0",
   "engines": {
-      "node": "12.8.1"
+    "node": "12.8.1"
   },
   "description": "jobtracker fullstack project",
   "main": "server.js",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/costasmith/jobtracker#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "mongod": "^2.0.0",
     "mongoose": "^5.6.9"

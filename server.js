@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 // Require dotenv becuase it contains my Atlas project link
-// require('dotenv').config();
+require('dotenv').config();
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 // How to connect to the database either via heroku or locally
 const PROJECT3_DB = process.env.PROJECT3_DB;
 console.log(process.env);
+console.log(process.env.PROJECT3_DB);
 
 // Fix Depreciation Warnings from Mongoose*
 // May or may not need these depending on your Mongoose version
