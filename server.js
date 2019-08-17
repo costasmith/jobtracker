@@ -31,8 +31,8 @@ app.use(session({
 
 // Fix Depreciation Warnings from Mongoose*
 // May or may not need these depending on your Mongoose version
-// mongoose.set('useFindAndModify', false);
-// mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 // app.get('/', (req,res) => {
 //   res.render('/')
