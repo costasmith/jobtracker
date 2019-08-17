@@ -7,6 +7,10 @@ const app = angular.module('JobApp', [])
 
 
 app.controller('JobController', ['$http', function ($http) {
+  this.includePath = 'partials/about.html'
+  this.changeInclude = (path) => {
+    this.includePath = 'partials/' + path + '.html'
+  }
   const controller = this
 
   // ======================================== Create Job
@@ -233,7 +237,6 @@ this.deleteJob = function(job){
       }).then(
           function(response){
               controller.loggedInUsername = response.data.username
-              controller.loggedInJobList = response.data.jobList     // needed?
               controller.loggedInID = response.data._id              // needed?
           },
           function(error){
