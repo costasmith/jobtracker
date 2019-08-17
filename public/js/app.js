@@ -1,6 +1,11 @@
 // setup
 const app = angular.module('JobApp', [])
 
+
+// const express = require('express');               // need for embedded models?
+// const User = require('.../models/user.js');       // need for embedded models?
+
+
 app.controller('JobController', ['$http', function ($http) {
   const controller = this
 
@@ -24,12 +29,80 @@ app.controller('JobController', ['$http', function ($http) {
     }).then(
       function(response) {
         console.log(response)
+
+
+////////////////////////////////////////////// try to store the job in the user
+        // User.findOne({username: controller.loggedInUsername}, (err, foundUser) => {
+        //     if (err) {                               // If an error occurs
+        //         console.log(err);
+        //         res.send('Error - check console log')
+        //     } else if (!foundUser) {                  // if user not found
+        //         res.send('The user was not found')
+        //     } else {                                  // if user is found
+        //         foundUser.jobList.push(response)
+        //     }
+        // })
+
+        controller.pushJob(response);
+
+
+        // controller.loggedInJobList.push(response)
+        //
+        // console.log(controller.loggedInJobList);
+        //
+        // controller.getUserJobs()
+////////////////////////////////////////////// try to store the job in the user
+
+
+// keep this either way
         controller.getJobs()
       }, function (error) {
         console.log(error);
       }
     )
   }
+
+
+
+////////////////////////////////////////////// try to store the job in the user
+this.pushJob = function(newJob){
+    console.log(controller.loggedInID);
+    console.log(newJob.data);
+    $http({
+        method: 'PUT',
+        url: '/users/' + controller.loggedInID,
+        data: {
+            job: newJob.data
+        }
+    }).then(
+        function(response){
+            console.log(response);
+        }, function(error){
+            console.log(error);
+        }
+    )
+}
+
+
+this.getUserJobs = function(){
+    $http({
+        method: 'GET',
+        url: '/users/' + controller.loggedInID
+    }).then(
+        function(response){
+            controller.jobs = response.data
+            console.log(response);
+            controller.getJobs()
+        }, function(error) {
+            console.log(error);
+        }
+    )
+}
+////////////////////////////////////////////// try to store the job in the user
+
+
+
+
 
   // ======================================== Get Jobs
   this.getJobs = function(){
@@ -39,23 +112,12 @@ app.controller('JobController', ['$http', function ($http) {
       }).then(
           function(response){
           controller.jobs = response.data
-          console.log(response);
+          // console.log(response);
       }, function(error){
           console.log(error);
       })
   }
 
-  // this.getJobs = function () {
-  //   $http({
-  //     method: 'GET',
-  //     url: '/jobs'
-  //   }).then(function (response) {
-  //     controller.jobs = response.data
-  //     console.log(response);
-  //   }, function (error) {
-  //       console.log(error);
-  //   })
-  // }
 
   // ======================================== Edit Job
   this.editJob = function(job) {
@@ -102,7 +164,7 @@ app.controller('JobController', ['$http', function ($http) {
           data: {
               username: this.newUsername,
               password: this.newPassword,
-              // jobList: []
+              jobList: []
           }
       }).then(
           function(response){
@@ -129,9 +191,9 @@ app.controller('JobController', ['$http', function ($http) {
       }).then(
           function(response){
               console.log(response);
-              // controller.username = null;
-              // controller.password = null;
-              // controller.goApp();           // go from login to the app
+              controller.username = null;
+              controller.password = null;
+              controller.goApp();           // go from login to the app
           },
           function(error){
               console.log(error);
@@ -147,6 +209,8 @@ app.controller('JobController', ['$http', function ($http) {
       }).then(
           function(response){
               controller.loggedInUsername = response.data.username
+              controller.loggedInJobList = response.data.jobList     // needed?
+              controller.loggedInID = response.data._id              // needed?
           },
           function(error){
               console.log(error);
@@ -171,6 +235,6 @@ app.controller('JobController', ['$http', function ($http) {
       )
   }
 
-  // ======================================== Show jobs on the page
+  // ======================================== Show jobs on the page load
   this.getJobs()
 }])
