@@ -147,6 +147,7 @@ app.controller('JobController', ['$http', function ($http) {
       }).then(
           function(response){
               controller.loggedInUsername = response.data.username
+              console.log(loggedInUsername);
           },
           function(error){
               console.log(error);
