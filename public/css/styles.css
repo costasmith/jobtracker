@@ -5,12 +5,17 @@
     font-size: 17px;
     /* text-align: center; */
   }
-  form {
+  /* form {
     display:flex;
     flex-grow: 5;
     flex-shrink: 1;
-  }
+  } */
 
+  .nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
 
     .forms {
       display: flex;
