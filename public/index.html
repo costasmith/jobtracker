@@ -10,8 +10,17 @@
    <script src="/js/app.js" charset="utf-8"></script>
    <link rel="stylesheet" href="../css/styles.css">
  </head>
-
  <body ng-controller="JobController as ctrl">
+   <nav ng-include="'partials/navigation'">
+   </nav>
+   <h1>Job Tracker</h1>
+   <h2>Find a job. Get a job.</h2>
+   <div class="container">
+     <div ng-include="ctrl.includePath">
+
+     </div>
+
+   </div>
 
          <h2>Create User</h2>
          <form ng-submit="ctrl.createUser()" >
