@@ -98,6 +98,30 @@ this.getUserJobs = function(){
         }
     )
 }
+
+// function to get one job, edit it, and store it back in the jobList
+
+// function to delete a selected job from the user's jobList
+// this.deleteJob = function(job){
+//     $http({
+//         method: 'DELETE',
+//
+//     })
+// }
+
+this.deleteJob = function(job){
+    $http({
+        method: 'GET',
+        url: '/users/' + controller.loggedInID + '/' + job._id
+    }).then(
+        function(response){
+            controller.getJobs()
+            console.log(response);
+        }, function(error){
+            console.log(error);
+      })
+  }
+
 ////////////////////////////////////////////// try to store the job in the user
 
 
@@ -120,41 +144,41 @@ this.getUserJobs = function(){
 
 
   // ======================================== Edit Job
-  this.editJob = function(job) {
-    $http({
-      method: 'PUT',
-      url: '/jobs/' + job._id,
-      data: {
-        position: this.position,
-        company: this.company,
-        applied: this.applied,
-        resume: this.resume,
-        letter: this.letter,
-        followedUp: this.followedUp,
-        salary: this.salary,
-        url: this.url,
-        stage: this.stage,
-        status: this.status
-      }
-    }).then(function () {
-      controller.getJobs()
-      controller.indexOfEditFormToShow = null
-    })
-  }
+  // this.editJob = function(job) {
+  //   $http({
+  //     method: 'PUT',
+  //     url: '/jobs/' + job._id,
+  //     data: {
+  //       position: this.position,
+  //       company: this.company,
+  //       applied: this.applied,
+  //       resume: this.resume,
+  //       letter: this.letter,
+  //       followedUp: this.followedUp,
+  //       salary: this.salary,
+  //       url: this.url,
+  //       stage: this.stage,
+  //       status: this.status
+  //     }
+  //   }).then(function () {
+  //     controller.getJobs()
+  //     controller.indexOfEditFormToShow = null
+  //   })
+  // }
 
   // ======================================== Delete Job
-  this.deleteJob = function(job){
-      $http({
-          method: 'DELETE',
-          url: '/jobs/' + job._id
-      }).then(
-          function(response){
-              controller.getJobs()
-              console.log(response);
-          }, function(error){
-              console.log(error);
-        })
-    }
+  // this.deleteJob = function(job){
+  //     $http({
+  //         method: 'GET',
+  //         url: '/users/' + controller.loggedInID + '/' + job._id
+  //     }).then(
+  //         function(response){
+  //             controller.getJobs()
+  //             console.log(response);
+  //         }, function(error){
+  //             console.log(error);
+  //       })
+  //   }
 
   // ======================================== Create User
   this.createUser = function(){
