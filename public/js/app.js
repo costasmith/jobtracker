@@ -129,9 +129,9 @@ app.controller('JobController', ['$http', function ($http) {
       }).then(
           function(response){
               console.log(response);
-              controller.username = null;
-              controller.password = null;
-              controller.goApp();           // go from login to the app
+              // controller.username = null;
+              // controller.password = null;
+              // controller.goApp();           // go from login to the app
           },
           function(error){
               console.log(error);
