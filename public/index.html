@@ -9,6 +9,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
    <script src="/js/app.js" charset="utf-8"></script>
    <link rel="stylesheet" href="../css/styles.css">
+<<<<<<< HEAD
  </head>
  <body ng-controller="JobController as ctrl">
    <nav ng-include="'partials/navigation'">
@@ -78,6 +79,43 @@
    </ul>
    Troy Costa HyoSung
    test deployment page for heroku
+=======
+
+</head>
+  <header>
+
+  </header>
+ <body ng-controller="JobController as ctrl">
+   <nav ng-include="'partials/navigation.html'">
+
+   </nav>
+    <h1>Job Tracker</h1>
+    <h2>Track your jobs!</h2>
+    <div class="container">
+      <div ng-include="ctrl.includePath">
+
+      </div>
+    </div>
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <button ng-click="ctrl.getUserJobs()">Get User Jobs</button>
+
+
+
+>>>>>>> c8646890c9fb8b896ea5959a4efd8d2a375e7a9b
  </body>
 
 
