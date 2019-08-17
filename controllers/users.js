@@ -53,18 +53,18 @@ router.get('/:id', (req, res) => {
 
 
 // delete a job from within the user's jobList array
-router.get('/:user/:id', (req, res) => {
+router.delete('/:user/:id', (req, res) => {
     User.findById(req.params.user, (err, foundUser) => {
         if (err) {
             console.log(err);
         } else {
             console.log(req.params.id);
-            // let index = foundUser.jobList.findIndex(x => x._id===req.params.id)
-            function isRightIndex (element) {
-                console.log(element);
-                return element._id === req.params.id
-            }
-            let index = foundUser.jobList.findIndex(isRightIndex)
+            let index = foundUser.jobList.findIndex(x => {return x._id===req.params.id})
+            // function isRightIndex (element) {
+            //     console.log(element);
+            //     return element._id === req.params.id
+            // }
+            // let index = foundUser.jobList.findIndex(isRightIndex)
             console.log(index);
             foundUser.jobList.splice(index, 1)
             foundUser.save((err, savedUser) => {

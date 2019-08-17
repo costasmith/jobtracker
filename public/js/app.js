@@ -7,10 +7,6 @@ const app = angular.module('JobApp', [])
 
 
 app.controller('JobController', ['$http', function ($http) {
-  this.includePath = 'partials/about.html'
-  this.changeInclude = (path) => {
-    this.includePath = 'partials/' + path + '.html'
-  }
   const controller = this
 
   // ======================================== Create Job
@@ -115,7 +111,7 @@ this.getUserJobs = function(){
 
 this.deleteJob = function(job){
     $http({
-        method: 'GET',
+        method: 'DELETE',
         url: '/users/' + controller.loggedInID + '/' + job._id
     }).then(
         function(response){
