@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="JobApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Job Tracker</title>
-    <!-- ====== scripts ====== -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
-    <style media="screen">
-      body {
-        background-color: orange;
-        font-family: fantasy;
-        font-size: 17px;
-        text-align: center;
-      }
 
-    </style>
-    <script src="" charset="utf-8"></script>
-  </head>
-  <body ng-controller="JobController as ctrl">
-    <form ng-submit="ctrl.createJob()">
-      <input type="text" ng-model="ctrl.position" placeholder="position"/>
-      <input type="submit" name="" value="Submit">
+ <head>
+   <meta charset="utf-8">
+   <title>Job Tracker</title>
+   <!-- ====== scripts ====== -->
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script> -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+   <script src="/js/app.js" charset="utf-8"></script>
+   <link rel="stylesheet" href="../css/styles.css">
+ </head>
 
-    </form>
-    Troy Costa HyoSung
-    test deployment page for heroku
-  </body>
+ <body ng-controller="JobController as ctrl">
+
+         <h2>Create User</h2>
+         <form ng-submit="ctrl.createUser()" >
+             <input type="text" ng-model="ctrl.newUsername" placeholder="username" /> <br/>
+             <input type="password" ng-model="ctrl.newPassword" placeholder="password" class="textInput"/> <br/>
+             <input type="submit" value="Create User" >
+         </form>
+
+         <hr>
+
+         <h2>Log In</h2>
+         <form ng-submit="ctrl.logIn()" >
+             <input type="text" ng-model="ctrl.username" placeholder="username" /> <br/>
+             <input type="password" ng-model="ctrl.password" placeholder="password" /> <br/>
+             <input type="submit" value="Log In" >
+         </form>
+
+         <hr>
+
+         <h2>Log Out</h2>
+         <form ng-submit="ctrl.logOut()" >
+             <input type="submit" value="Logout">
+         </form>
+
+         <hr>
+
+   <form ng-submit="ctrl.createJob()">
+     <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
+     <input type="text" ng-model="ctrl.company" placeholder="company"/><br/>
+     <input type="text" ng-model="ctrl.applied" placeholder="applied"/><br/>
+     <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/>
+     <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
+     <input type="text" ng-model="ctrl.followedUp" placeholder="followed up"/><br/>
+     <input type="text" ng-model="ctrl.salary" placeholder="salary"/><br/>
+     <input type="text" ng-model="ctrl.url" placeholder="url"/><br/>
+     <input type="text" ng-model="ctrl.stage" placeholder="stage"/><br/>
+     <input type="text" ng-model="ctrl.status" placeholder="status"/><br/>
+     <input type="submit" name="" value="Submit">
+   </form>
+   <ul>
+     <li ng-repeat="job in ctrl.jobs">
+       {{job.position}}
+       {{job.company}}
+       {{job.applied}}
+       {{job.followedUp}}
+       {{job.salary}}
+       {{job.url}}
+       {{job.status}}
+       {{job.stage}}
+
+       <form ng-submit="ctrl.editJob(job)">
+         <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
+         <input type="text" ng-model="ctrl.company" placeholder="company"/><br/>
+         <input type="text" ng-model="ctrl.applied" placeholder="applied"/><br/>
+         <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/>
+         <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
+         <input type="text" ng-model="ctrl.followedUp" placeholder="followed up"/><br/>
+         <input type="text" ng-model="ctrl.salary" placeholder="salary"/><br/>
+         <input type="text" ng-model="ctrl.url" placeholder="url"/><br/>
+         <input type="text" ng-model="ctrl.stage" placeholder="stage"/><br/>
+         <input type="text" ng-model="ctrl.status" placeholder="status"/><br/>
+         <input type="submit" name="" value="Submit">
+       </form>
+
+
+       <button ng-click="ctrl.deleteJob(job)">Delete This Job</button>
+     </li>
+   </ul>
+   Troy Costa HyoSung
+   test deployment page for heroku
+ </body>
+
+
 </html>
