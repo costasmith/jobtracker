@@ -3,6 +3,8 @@ const app = express();
 // Require dotenv becuase it contains my Atlas project link
 require('dotenv').config();
 
+const session = require('express-session');
+
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
@@ -21,7 +23,11 @@ console.log(process.env.PROJECT3_DB);
 //use public folder for static assets
 app.use(express.static('public'));
 app.use(express.json());//  middleware that parses JSON
-
+app.use(session({
+    secret: 'joeyjojojuniorshabadoo',
+    resave: false,
+    saveUninitialized: false
+}));
 
 // Fix Depreciation Warnings from Mongoose*
 // May or may not need these depending on your Mongoose version
