@@ -1,4 +1,5 @@
 <h2>Log In</h2>
+<h3>Hello, {{ctrl.loggedInUsername}}</h3>
 <form ng-submit="ctrl.logIn()" >
     <input type="text" ng-model="ctrl.username" placeholder="username" /> <br/>
     <input type="password" ng-model="ctrl.password" placeholder="password" /> <br/>
@@ -25,14 +26,22 @@
 </form>
 <ul>
   <li ng-repeat="job in ctrl.jobs">
-    {{job.position}}
-    {{job.company}}
-    {{job.applied}}
-    {{job.followedUp}}
-    {{job.salary}}
-    {{job.url}}
-    {{job.status}}
-    {{job.stage}}
+    <h2>{{job.position}}</h2>
+
+  <div class="card">
+    <img src="http://www.innerdesign.com/uploads/files/9/7/3/fca698074c6e81ef0253ea8fb67c282f.png" alt="Avatar" style="width:100%">
+    <div class="container">
+
+      <h3>Company: {{job.company}}</h3>
+      <h3>Applid To: {{job.applied}}</h3>
+      <h3>Did you follow up?: {{job.followedUp}}</h3>
+      <h3>Salary: {{job.salary}}</h3>
+      <h3>URL: {{job.url}}</h3>
+      <h3>Status: {{job.status}}</h3>
+      <h3>Stage: {{job.stage}}</h3>
+    </div>
+  </div>
+
 
     <form ng-submit="ctrl.editJob(job)">
       <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
