@@ -1,4 +1,7 @@
 <h2>Log In</h2>
+
+<h3>Hello, {{ctrl.loggedInUsername}}</h3>
+
 <form ng-submit="ctrl.logIn()" >
     <input type="text" ng-model="ctrl.username" placeholder="username" /> <br/>
     <input type="password" ng-model="ctrl.password" placeholder="password" /> <br/>
@@ -9,3 +12,55 @@
 <form ng-submit="ctrl.logOut()" >
     <input type="submit" value="Logout">
 </form>
+
+
+<form  class="forms" ng-submit="ctrl.createJob()">
+  <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
+  <input type="text" ng-model="ctrl.company" placeholder="company"/><br/>
+  <input type="text" ng-model="ctrl.applied" placeholder="applied"/><br/>
+  <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/>
+  <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
+  <input type="text" ng-model="ctrl.followedUp" placeholder="followed up"/><br/>
+  <input type="text" ng-model="ctrl.salary" placeholder="salary"/><br/>
+  <input type="text" ng-model="ctrl.url" placeholder="url"/><br/>
+  <input type="text" ng-model="ctrl.stage" placeholder="stage"/><br/>
+  <input type="text" ng-model="ctrl.status" placeholder="status"/><br/>
+  <input type="submit" name="" value="Submit">
+</form>
+<ul>
+  <li ng-repeat="job in ctrl.jobs">
+    <h2>{{job.position}}</h2>
+
+  <div class="card">
+    <img src="http://www.innerdesign.com/uploads/files/9/7/3/fca698074c6e81ef0253ea8fb67c282f.png" alt="Avatar" style="width:100%">
+    <div class="container">
+
+      <h3>Company: {{job.company}}</h3>
+      <h3>Applid To: {{job.applied}}</h3>
+      <h3>Did you follow up?: {{job.followedUp}}</h3>
+      <h3>Salary: {{job.salary}}</h3>
+      <h3>URL: {{job.url}}</h3>
+      <h3>Status: {{job.status}}</h3>
+      <h3>Stage: {{job.stage}}</h3>
+    </div>
+  </div>
+
+
+    <form ng-submit="ctrl.editJob(job)">
+      <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
+      <input type="text" ng-model="ctrl.company" placeholder="company"/><br/>
+      <input type="text" ng-model="ctrl.applied" placeholder="applied"/><br/>
+      <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/>
+      <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
+      <input type="text" ng-model="ctrl.followedUp" placeholder="followed up"/><br/>
+      <input type="text" ng-model="ctrl.salary" placeholder="salary"/><br/>
+      <input type="text" ng-model="ctrl.url" placeholder="url"/><br/>
+      <input type="text" ng-model="ctrl.stage" placeholder="stage"/><br/>
+      <input type="text" ng-model="ctrl.status" placeholder="status"/><br/>
+      <input type="submit" name="" value="Submit">
+    </form>
+
+    <button ng-click="ctrl.deleteJob(job)">Delete This Job</button>
+  </li>
+</ul>
+

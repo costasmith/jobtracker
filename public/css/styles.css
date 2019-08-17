@@ -1,13 +1,103 @@
 /* <style media="screen"> */
   body {
-    background-color: orange;
+    background-color: lightgrey;
     font-family: fantasy;
     font-size: 17px;
-    text-align: center;
+    /* text-align: center; */
   }
-  form {
+  /* form {
     display:flex;
     flex-grow: 5;
     flex-shrink: 1;
+  } */
+
+  .nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
   }
+
+    .forms {
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+    }
+
+    input[type=text], input[type=password] {
+
+      margin: auto;
+      border: 1px solid red;
+      border-radius: 4px;
+
+
+    }
+    .create {
+      display: flex;
+      /* justify-content: flex-start; */
+      flex-direction: column;
+
+    }
+
+    /* * {
+  box-sizing: border-box;
+} */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+.container {
+  padding: 2px 16px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #D3D3D3;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  width: 500px;
+  height: 20px;
+}
+
+form {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  border-radius: 12px;
+}
+/* form input {
+  margin-bottom: 1rem;
+  /* background: #fff; */
+  /* border: 1px solid #9c9c9c; */
+} */
+form button {
+  /* background: lightgrey; */
+  /* padding: 0.7em; */
+  border: 0;
+  overflow: hidden;
+}
 /* </style> */

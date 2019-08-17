@@ -9,75 +9,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
    <script src="/js/app.js" charset="utf-8"></script>
    <link rel="stylesheet" href="../css/styles.css">
- </head>
- <body ng-controller="JobController as ctrl">
-   <nav ng-include="'partials/navigation'">
-   </nav>
-   <h1>Job Tracker</h1>
-   <h2>Find a job. Get a job.</h2>
-   <div class="container">
-     <div ng-include="ctrl.includePath">
-
-     </div>
-
-   </div>
-
-        
-
-         <hr>
 
 
 
-         <hr>
-
-
-
-         <hr>
-
-   <form ng-submit="ctrl.createJob()">
-     <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
-     <input type="text" ng-model="ctrl.company" placeholder="company"/><br/>
-     <input type="text" ng-model="ctrl.applied" placeholder="applied"/><br/>
-     <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/>
-     <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
-     <input type="text" ng-model="ctrl.followedUp" placeholder="followed up"/><br/>
-     <input type="text" ng-model="ctrl.salary" placeholder="salary"/><br/>
-     <input type="text" ng-model="ctrl.url" placeholder="url"/><br/>
-     <input type="text" ng-model="ctrl.stage" placeholder="stage"/><br/>
-     <input type="text" ng-model="ctrl.status" placeholder="status"/><br/>
-     <input type="submit" name="" value="Submit">
-   </form>
-   <ul>
-     <li ng-repeat="job in ctrl.jobs">
-       {{job.position}}
-       {{job.company}}
-       {{job.applied}}
-       {{job.followedUp}}
-       {{job.salary}}
-       {{job.url}}
-       {{job.status}}
-       {{job.stage}}
-
-       <form ng-submit="ctrl.editJob(job)">
-         <input type="text" ng-model="ctrl.position" placeholder="position"/><br>
-         <input type="text" ng-model="ctrl.company" placeholder="company"/><br/>
-         <input type="text" ng-model="ctrl.applied" placeholder="applied"/><br/>
-         <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/>
-         <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
-         <input type="text" ng-model="ctrl.followedUp" placeholder="followed up"/><br/>
-         <input type="text" ng-model="ctrl.salary" placeholder="salary"/><br/>
-         <input type="text" ng-model="ctrl.url" placeholder="url"/><br/>
-         <input type="text" ng-model="ctrl.stage" placeholder="stage"/><br/>
-         <input type="text" ng-model="ctrl.status" placeholder="status"/><br/>
-         <input type="submit" name="" value="Submit">
-       </form>
-
-
-       <button ng-click="ctrl.deleteJob(job)">Delete This Job</button>
-     </li>
-   </ul>
-   Troy Costa HyoSung
-   test deployment page for heroku
  </body>
 
 

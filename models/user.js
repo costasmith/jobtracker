@@ -5,7 +5,8 @@ const JobSchema = mongoose.model('Job').schema;
 const userSchema = Schema({
     username: String,
     password: String,
-    jobList: [JobSchema]
+    jobList: [JobSchema],
+    job: JobSchema          //  Try to pass a job to put for pushing into array
 });
 
 const User = mongoose.model('User', userSchema);
