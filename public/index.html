@@ -10,11 +10,12 @@
    <script src="/js/app.js" charset="utf-8"></script>
    <link rel="stylesheet" href="../css/styles.css">
 
+
 </head>
   <header>
 
   </header>
- <body ng-controller="JobController as ctrl">
+ <body ng-controller="JobController as ctrl" >
    <nav ng-include="'partials/navigation.html'">
 
    </nav>
@@ -22,27 +23,8 @@
     <h2>Track your jobs!</h2>
     <div class="container">
       <div ng-include="ctrl.includePath">
-
       </div>
     </div>
-
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <button ng-click="ctrl.getUserJobs()">Get User Jobs</button>
-
-
 
  </body>
 
