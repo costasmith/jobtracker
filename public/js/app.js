@@ -100,7 +100,8 @@ app.controller('JobController', ['$http', function ($http) {
       }
     }).then(
         function (response) {
-        controller.replaceJob(response)  // delete the old version, add the new
+        controller.replaceJob(response)
+        console.log(response);  // delete the old version, add the new
         controller.getUserJobs()
     }, function(error) {
         console.log(error);
