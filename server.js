@@ -1,23 +1,16 @@
+//==============================================================================
+//  SERVER.JS => THIS FILE IS THE ENTRY POINT, IT CONTAINS
+//==============================================================================
+// ======================================== Dependencies
 const express = require('express');
 const app = express();
-// Require dotenv becuase it contains my Atlas project link
+// Require dotenv becuase it contains the Atlas project link
 require('dotenv').config();
-
 const session = require('express-session');
-
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-
 const PORT = process.env.PORT || 3000;
 
-
-//___________________
-//Database
-//___________________
-// How to connect to the database either via heroku or locally
-const PROJECT3_DB = process.env.PROJECT3_DB;
-console.log(process.env);
-console.log(process.env.PROJECT3_DB);
 
 // ======================================== Middleware
 //use public folder for static assets
@@ -29,21 +22,23 @@ app.use(session({
     saveUninitialized: false
 }));
 
-// Fix Depreciation Warnings from Mongoose*
-// May or may not need these depending on your Mongoose version
+
+// ======================================== Database
+// How to connect to the database either via heroku or locally
+const PROJECT3_DB = process.env.PROJECT3_DB;
+
+// Fix Depreciation Warnings from Mongoose
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
-// app.get('/', (req,res) => {
-//   res.render('/')
-// })
-
-// ======================================== Database
+// Connect to the database
 mongoose.connect(PROJECT3_DB, {useNewUrlParser: true})
 
+// Announce that the connection has been opened
 mongoose.connection.once('open', () => {
   console.log('connected to monkey ...')
 })
+
 
 // ======================================== User Session Route
 app.get('/app', (req, res) => {
@@ -57,6 +52,7 @@ app.get('/app', (req, res) => {
     }
 })
 
+
 // ======================================== Controllers
 const jobsController = require('./controllers/jobs.js')
 app.use('/jobs', jobsController)
@@ -66,6 +62,7 @@ app.use('/users', userController);
 
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
+
 
 // ======================================== Listener
 app.listen(PORT, () =>{
