@@ -1,9 +1,18 @@
+//==============================================================================
+//  USERS.JS => CONTROLLER FOR USERS, INCLUDING JOBS STORED IN USERS
+//==============================================================================
+
+// ======================================== Dependencies
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
 const bcrypt = require('bcrypt');
 
-// ======================================== Create User
+
+//==============================================================================
+//  USER CONTROLLER ROUTES
+//==============================================================================
+// ======================================== CREATE User
 router.post('/', (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password,
     bcrypt.genSaltSync(10));
@@ -16,20 +25,14 @@ router.post('/', (req, res) => {
 })
 
 
-
-
-
-
-
-
-////////////////////////////////////////////// try to store the job in the user
+// ======================================== Push a CREATED job to user's jobList
 router.put('/:id', (req, res) => {
     User.findById(req.params.id, (err, foundUser) => {
         console.log(foundUser);
         console.log(req.body.job);
         foundUser.jobList.push(req.body.job)
         foundUser.save((err, savedUser) => {
-            // res.json(foundUser)
+            // save the updated foundUser
         })
         console.log(foundUser);
         res.status(201).json({
@@ -40,38 +43,69 @@ router.put('/:id', (req, res) => {
 })
 
 
-
+// ======================================== READ jobs from user's jobList
 router.get('/:id', (req, res) => {
     User.findById(req.params.id, (err, foundUser) => {
         if (err) {
             console.log(err);
         } else {
-            res.json(foundUser)
+            console.log(foundUser.jobList);
+            res.json(foundUser.jobList)
         }
     })
 })
 
 
-// delete a job from within the user's jobList array
-router.get('/:user/:id', (req, res) => {
+// ======================================== UPDATE a job from user's jobList
+router.put('/:user/:id', (req, res) => {
     User.findById(req.params.user, (err, foundUser) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(req.params.id);
-            // let index = foundUser.jobList.findIndex(x => x._id===req.params.id)
-            function isRightIndex (element) {
-                console.log(element);
-                return element._id === req.params.id
+            // Find the index of the job in the user's jobList
+            let idString = req.params.id.toString();
+            let checkID = [];
+            for (let i = 0; i < foundUser.jobList.length; i++) {
+                checkID[i] = foundUser.jobList[i]._id.toString()
             }
-            let index = foundUser.jobList.findIndex(isRightIndex)
-            console.log(index);
-            foundUser.jobList.splice(index, 1)
+
+            function isRightIndex (jobNo) {
+                return (jobNo == idString)
+            }
+            let index = checkID.findIndex(isRightIndex)
+
+            // remove the original job from the jobList and add the updated job
+            foundUser.jobList.splice(index, 1, req.body.job)
             foundUser.save((err, savedUser) => {
-                // res.json(foundUser)
+                // save the updated foundUser
             })
         }
-        console.log(foundUser);
+    })
+})
+
+
+// ======================================== DELETE a job from user's jobList
+router.delete('/:user/:id', (req, res) => {
+    User.findById(req.params.user, (err, foundUser) => {
+        if (err) {
+            console.log(err);
+        } else {
+            let idString = req.params.id.toString();
+            let checkID = [];
+            for (let i = 0; i < foundUser.jobList.length; i++) {
+                checkID[i] = foundUser.jobList[i]._id.toString()
+            }
+
+            function isRightIndex (jobNo) {
+                return (jobNo == idString)
+            }
+            let index = checkID.findIndex(isRightIndex)
+
+            foundUser.jobList.splice(index, 1)
+            foundUser.save((err, savedUser) => {
+                // save the updated foundUser
+            })
+        }
         res.status(201).json({
             status: 201,
             message: 'job deleted from jobList array'
@@ -80,11 +114,5 @@ router.get('/:user/:id', (req, res) => {
 })
 
 
-
-////////////////////////////////////////////// try to store the job in the user
-
-
-
-
-
+// export the users router
 module.exports = router
