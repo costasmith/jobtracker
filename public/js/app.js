@@ -41,7 +41,6 @@ app.controller('JobController', ['$http', function ($http) {
     }).then(
       function(response) {
         controller.pushJob(response);  // push the job into user's jobList
-        controller.getUserJobs()
       }, function (error) {
         console.log(error);
       }
@@ -59,9 +58,11 @@ app.controller('JobController', ['$http', function ($http) {
         }
     }).then(
         function(response){
-            console.log(response);
+            console.log('push new job response: ' + response);
+            controller.getUserJobs()
         }, function(error){
             console.log(error);
+            controller.getUserJobs()
         }
     )
 }
@@ -74,6 +75,10 @@ app.controller('JobController', ['$http', function ($http) {
       }).then(
           function(response){
               controller.jobs = response.data
+              console.log('jobs to be displayed on the page: ');
+              for (let i = 0; i < controller.jobs.length; i++) {
+                  console.log(controller.jobs[i]._id + '     ' + controller.jobs[i].position);
+              }
           }, function(error) {
               console.log(error);
           }
@@ -83,6 +88,7 @@ app.controller('JobController', ['$http', function ($http) {
 
   // ======================================== UPDATE a job from user's jobList
   this.editJob = function(job) {
+      console.log(job);
     $http({
       method: 'PUT',
       url: '/jobs/' + job._id,
@@ -100,8 +106,8 @@ app.controller('JobController', ['$http', function ($http) {
       }
     }).then(
         function (response) {
+            console.log('updated job received from job controller: ', response);
         controller.replaceJob(response)  // delete the old version, add the new
-        controller.getUserJobs()
     }, function(error) {
         console.log(error);
     })
@@ -110,17 +116,20 @@ app.controller('JobController', ['$http', function ($http) {
 
   // ======================================== replace the updated job in jobList
   this.replaceJob = function(updatedJob){
+      console.log('updatedJob to be sent in as a replacement: ' + updatedJob.data._id);
       $http({
           method: 'PUT',
-          url: '/users/' + controller.loggedInID + '/' + updatedJob._id,
+          url: '/users/' + controller.loggedInID + '/' + updatedJob.data._id,
           data: {
               job: updatedJob.data
           }
       }).then(
           function(response){
-              console.log(response);
+              console.log('response received from replacement: ', response);
+              controller.getUserJobs()
           }, function(error){
               console.log(error);
+              controler.getUserJobs()
           }
       )
   }
@@ -133,10 +142,11 @@ app.controller('JobController', ['$http', function ($http) {
         url: '/users/' + controller.loggedInID + '/' + job._id
     }).then(
         function(response){
-            controller.getUserJobs()
             console.log(response);
+            controller.getUserJobs()
         }, function(error){
             console.log(error);
+            controller.getUserJobs()
       })
   }
 
@@ -215,6 +225,7 @@ app.controller('JobController', ['$http', function ($http) {
           function(response){
               console.log(response);
               controller.loggedInUsername = null;
+              controller.getUserJobs()
           },
           function(error){
               console.log(error);
