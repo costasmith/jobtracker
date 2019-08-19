@@ -1,5 +1,5 @@
 //==============================================================================
-//  SERVER.JS => THIS FILE IS THE ENTRY POINT, IT CONTAINS
+//  SERVER.JS => THIS FILE IS THE ENTRY POINT; IT SETS EVERYTHING UP
 //==============================================================================
 // ======================================== Dependencies
 const express = require('express');
@@ -36,7 +36,7 @@ mongoose.connect(PROJECT3_DB, {useNewUrlParser: true})
 
 // Announce that the connection has been opened
 mongoose.connection.once('open', () => {
-  console.log('connected to monkey ...')
+  console.log('connected to mongo ...')
 })
 
 
@@ -66,5 +66,5 @@ app.use('/sessions', sessionsController);
 
 // ======================================== Listener
 app.listen(PORT, () =>{
-  console.log( 'Hello Mate! Welcome to port: ')
+  console.log( 'Hello Mate! Welcome to port: ', PORT)
 })
