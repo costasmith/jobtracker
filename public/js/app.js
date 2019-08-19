@@ -108,6 +108,8 @@ app.controller('JobController', ['$http', function ($http) {
         function (response) {
             console.log('updated job received from job controller: ', response);
         controller.replaceJob(response)  // delete the old version, add the new
+        controller.indexOfEditFormToShow = null;
+
 
     }, function(error) {
         console.log(error);
