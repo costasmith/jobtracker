@@ -6,29 +6,7 @@
     text-align: center;
     background-image: url(https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
   }
-  /* form {
-    display:flex;
-    flex-grow: 5;
-    flex-shrink: 1;
-  } */
 
-  .nav {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    background-color: gray;
-    padding: 4px;
-    font-size: 20px;
-    border-radius: 12px;
-    border: 3px solid black;
-    opacity: 0.6;
-  }
-
-    .forms {
-      display: flex;
-      flex-direction: column;
-      /* justify-content: center; */
-    }
 
     input[type=text], input[type=password] {
 
@@ -47,16 +25,6 @@
 
     }
 
-    /* * {
-  box-sizing: border-box;
-} */
-
-/* .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
-} */
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -69,13 +37,14 @@
 }
 
 .card {
+
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 50%;
   border-radius: 5px;
-  background-color: #D3D3D3;
-  opacity: .6;
+  background-color: white;
+  /* opacity: .6; */
 }
 
 .card:hover {
@@ -88,16 +57,43 @@ img {
   width: 500px;
   height: 20px;
 }
+.but {
+  margin: 20px 0;
+  background-color: lightgrey;
+  /* background-color: #0EB64B; */
+  background-color: rgba(212, 201, 202, .6);
+  border-radius: 12px;
+  border: 3px solid black;
+  padding: 4px;
+  /* opacity: 1; */
 
+}
   .but:hover, .but:focus {
  cursor: pointer;
- border: 3px solid blue;
+ border: 3px solid black;
  transform: translateY(-0.25em);
  padding: 10px;
  border-radius: 13px;
- background-color: lightgrey;
- opacity: .9;
+ background-color: #0EB64B;
+ opacity: 1;
 
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  /* background-color: #D4C9CA; */
+  background-color: rgba(212, 201, 202, 0.6);
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 12px;
+  border: 3px solid black;
+  /* opacity: 0.6; */
+  color: black;
+}
+
+.nav:hover {
+  opacity: .9;
 }
 form {
   padding: 1em;
