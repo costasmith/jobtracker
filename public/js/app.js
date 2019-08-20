@@ -172,9 +172,10 @@ app.controller('JobController', ['$http', function ($http) {
               console.log(response);
               controller.newUsername = null;
               controller.newPassword = null
+              alert('user created, please click Login Here button')
           },
           function(error){
-              console.log(error);
+              console.log(error)
           }
       )
   }
