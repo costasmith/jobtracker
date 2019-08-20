@@ -10,7 +10,7 @@ const app = angular.module('JobApp', [])
 //==============================================================================
 app.controller('JobController', ['$http', function ($http) {
     // include path enables the use of partials
-    this.includePath = 'partials/about.html'
+    this.includePath = 'partials/home.html'
     this.changeInclude = (path) => {
       this.includePath = 'partials/' + path + '.html'
     }
@@ -22,7 +22,7 @@ app.controller('JobController', ['$http', function ($http) {
   //  THE JOB FUNCTIONS START HERE
   //============================================================================
   // ======================================== CREATE Job
-  this.createJob = function(){
+  this.createJob = function() {
     $http({
       method: 'POST',
       url: '/jobs',
@@ -108,6 +108,8 @@ app.controller('JobController', ['$http', function ($http) {
         function (response) {
             console.log('updated job received from job controller: ', response);
         controller.replaceJob(response)  // delete the old version, add the new
+        controller.indexOfEditFormToShow = null;
+
 
     }, function(error) {
         console.log(error);
@@ -170,9 +172,10 @@ app.controller('JobController', ['$http', function ($http) {
               console.log(response);
               controller.newUsername = null;
               controller.newPassword = null
+              alert('user created, please click Login Here button')
           },
           function(error){
-              console.log(error);
+              console.log(error)
           }
       )
   }
@@ -196,6 +199,7 @@ app.controller('JobController', ['$http', function ($http) {
           },
           function(error){
               console.log(error);
+              alert('login failed')
         })
     }
 
