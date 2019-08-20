@@ -30,8 +30,6 @@
       <div ng-if="ctrl.loggedInUsername">
         <h2>{{job.position}}</h2>
         <img src="https://files.slack.com/files-pri/T0351JZQ0-FMJCTF2LV/image.png" alt="working" style="width:100%">
-        <!-- https://files.slack.com/files-pri/T0351JZQ0-FMC18T45P/image.png
-        <img src="http://www.innerdesign.com/uploads/files/9/7/3/fca698074c6e81ef0253ea8fb67c282f.png" alt="Avatar" style="width:100%"> -->
         <div class="container">
           <h3>Company: {{job.company}}</h3>
           <h3>Applied: {{job.applied}}</h3>
@@ -50,7 +48,7 @@
             class="smallButton">
             Edit this Job
           </a>
-        <form
+      <form
         class="forms"
           ng-submit="ctrl.editJob(job)"
           ng-if="$index === ctrl.indexOfEditFormToShow">
