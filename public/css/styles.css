@@ -15,6 +15,11 @@ body {
   margin: 0 auto;
 }
 
+p {
+  font-size: 24px;
+  padding: 0px 25px;
+  text-align: left;
+}
 h3 {
   margin: -1px;
 }

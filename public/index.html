@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="JobApp">
-
- <head>
-   <meta charset="utf-8">
-   <title>Job Tracker</title>
-   <!-- ====== scripts ====== -->
-   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script> -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
-   <script src="/js/app.js" charset="utf-8"></script>
-   <link rel="stylesheet" href="../css/styles.css">
-
-
+<head>
+  <meta charset="utf-8">
+  <title>Job Tracker</title>
+  <!-- ====== scripts ====== -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
-  <header>
-
-  </header>
- <body ng-controller="JobController as ctrl" >
-   <nav ng-include="'partials/navigation.html'">
-<!-- hi -->
-   </nav>
-    <h1>Job Tracker</h1>
-    <h2>Track your jobs!</h2>
-    <div class="container">
-      <div ng-include="ctrl.includePath">
-      </div>
+<header>
+</header>
+<body ng-controller="JobController as ctrl" >
+  <nav ng-include="'partials/navigation.html'">
+    <!-- hi -->
+  </nav>
+  <h1>Job Tracker</h1>
+  <h2>Track your jobs!</h2>
+  <div class="container">
+    <div ng-include="ctrl.includePath">
     </div>
-
- </body>
-
-
+  </div>
+</body>
 </html>

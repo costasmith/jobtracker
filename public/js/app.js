@@ -10,7 +10,7 @@ const app = angular.module('JobApp', [])
 //==============================================================================
 app.controller('JobController', ['$http', function ($http) {
     // include path enables the use of partials
-    this.includePath = 'partials/about.html'
+    this.includePath = 'partials/home.html'
     this.changeInclude = (path) => {
       this.includePath = 'partials/' + path + '.html'
     }
