@@ -38,10 +38,15 @@ input[type=text], input[type=password] {
   border: 1px solid red;
   border-radius: 4px;
   padding: 10px;
-  width: 50%;
+  width: 90%;
   font-size: 20px;
 }
 
+.formLeft {
+   text-align: left;
+   border: 1px solid green;
+   width: 50%;
+}
 
 /* .create {
   /* display: flex;
@@ -151,25 +156,16 @@ form {
   border-radius: 12px;
 }
 
-.formLeft {
-  text-align: center;
-  align-items: center;
-  border: 1px solid green;
-}
-
 form:last-child {
   text-align: left;
   border: 5px solid blue;
 }
-/* .forms {
-  text-align: left;
-} */
-/* form input {
-margin-bottom: 1rem;
-/* background: #fff; */
-/* border: 1px solid #9c9c9c; */
+
+.forms {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
-*/
 
 form button {
   /* background: lightgrey; */
@@ -196,6 +192,6 @@ ul {
 .box {
   align-items: flex-start;
   font-size: 24px;
-  padding: 4px;
+  margin: 12px 12px;
   text-align: left;
 }
