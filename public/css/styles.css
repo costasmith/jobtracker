@@ -1,7 +1,3 @@
-* {
-  border: 1px solid red;
-}
-
 body {
   background-color: lightgrey;
   font-family: Arial;
@@ -44,8 +40,14 @@ input[type=text], input[type=password] {
 
 .formLeft {
    text-align: left;
-   border: 1px solid green;
    width: 50%;
+   margin-bottom: 6px;
+}
+
+.editLeft {
+   text-align: left;
+   width: 95%;
+   margin-bottom: 6px;
 }
 
 /* .create {
@@ -182,6 +184,7 @@ form button {
   border: 3px solid black;
   padding: 10px;
   font-size: 18px;
+  margin: 6px 6px;
 }
 
 ul {
@@ -193,4 +196,9 @@ ul {
   font-size: 24px;
   margin: 12px 12px;
   text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

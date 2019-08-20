@@ -46,24 +46,28 @@
           <a
             href="#"
             ng-if="$index !== ctrl.indexOfEditFormToShow"
-            ng-click="ctrl.indexOfEditFormToShow = $index">
+            ng-click="ctrl.indexOfEditFormToShow = $index"
+            class="smallButton">
             Edit this Job
           </a>
         <form
+        class="forms"
           ng-submit="ctrl.editJob(job)"
           ng-if="$index === ctrl.indexOfEditFormToShow">
-          <input type="text" ng-model="ctrl.position" placeholder="Position"/><br>
-          <input type="text" ng-model="ctrl.company" placeholder="Company"/><br/>
-          <input type="text" ng-model="ctrl.applied" placeholder="Applied"/><br/>
-          <input type="text" ng-model="ctrl.followedUp" placeholder="Followed Up"/><br/>
-          <input type="text" ng-model="ctrl.salary" placeholder="Salary"/><br/>
-          <input type="text" ng-model="ctrl.url" placeholder="Url"/><br/>
-          <input type="text" ng-model="ctrl.status" placeholder="Notes"/><br/>
-          Resume Submitted: <input type="checkbox" ng-model="ctrl.resume" placeholder="resume"/><br/>
-          Cover Letter Submitted: <input type="checkbox" ng-model="ctrl.letter" placeholder="letter"/><br/>
-          <input type="submit" name="" value="Submit Change">
+          <div class="editLeft">
+            <input type="text" ng-model="ctrl.position" placeholder="Position"/><br>
+            <input type="text" ng-model="ctrl.company" placeholder="Company"/><br/>
+            <input type="text" ng-model="ctrl.applied" placeholder="Applied"/><br/>
+            <input type="text" ng-model="ctrl.followedUp" placeholder="Followed Up"/><br/>
+            <input type="text" ng-model="ctrl.salary" placeholder="Salary"/><br/>
+            <input type="text" ng-model="ctrl.url" placeholder="Url"/><br/>
+            <input type="text" ng-model="ctrl.status" placeholder="Notes"/><br/>
+              <input type="checkbox" ng-model="ctrl.resume" placeholder="resume" class="box"/>Resume Submitted<br/>
+              <input type="checkbox" ng-model="ctrl.letter" placeholder="letter" class="box"/>Cover Letter Submitted<br/>
+          </div>
+            <input type="submit" class="smallButton" value="Submit Change">
       </form>
-      <button ng-click="ctrl.deleteJob(job)">Delete This Job</button>
+      <button ng-click="ctrl.deleteJob(job)" class="smallButton">Delete This Job</button>
     </div>
   </li>
 </div>
