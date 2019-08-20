@@ -1,9 +1,17 @@
+* {
+  border: 1px solid red;
+}
+
 body {
   background-color: lightgrey;
   font-family: Arial;
   font-size: 17px;
   text-align: center;
   background-image: url(https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .about {
@@ -21,8 +29,8 @@ p {
   text-align: left;
 }
 
-h3 {
-  margin: -1px;
+.headertext {
+  text-shadow: 1px 1px white;
 }
 
 input[type=text], input[type=password] {
@@ -142,6 +150,9 @@ form {
   border-radius: 12px;
 }
 
+/* .forms {
+  text-align: left;
+} */
 /* form input {
 margin-bottom: 1rem;
 /* background: #fff; */
@@ -169,4 +180,8 @@ form button {
 
 ul {
   text-align: center;
+}
+
+.box {
+  align-items: flex-start;
 }

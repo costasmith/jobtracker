@@ -22,7 +22,7 @@ app.controller('JobController', ['$http', function ($http) {
   //  THE JOB FUNCTIONS START HERE
   //============================================================================
   // ======================================== CREATE Job
-  this.createJob = function(){
+  this.createJob = function() {
     $http({
       method: 'POST',
       url: '/jobs',
