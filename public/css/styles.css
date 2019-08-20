@@ -32,7 +32,6 @@ input[type=text], input[type=password] {
   padding: 10px;
   width: 50%;
   font-size: 20px;
-
 }
 
 /* .create {
@@ -111,7 +110,6 @@ img {
   border-radius: 13px;
   background-color: #0EB64B;
   opacity: 1;
-
 }
 
 .nav {
@@ -149,8 +147,8 @@ margin-bottom: 1rem;
 /* background: #fff; */
 /* border: 1px solid #9c9c9c; */
 }
-
 */
+
 form button {
   /* background: lightgrey; */
   /* padding: 0.7em; */
