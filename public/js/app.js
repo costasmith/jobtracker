@@ -198,6 +198,7 @@ app.controller('JobController', ['$http', function ($http) {
           },
           function(error){
               console.log(error);
+              alert('login failed')
         })
     }
 
