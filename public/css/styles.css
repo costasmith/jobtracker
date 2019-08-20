@@ -42,6 +42,7 @@ input[type=text], input[type=password] {
   font-size: 20px;
 }
 
+
 /* .create {
   /* display: flex;
   /* justify-content: flex-start; */
@@ -150,6 +151,16 @@ form {
   border-radius: 12px;
 }
 
+.formLeft {
+  text-align: center;
+  align-items: center;
+  border: 1px solid green;
+}
+
+form:last-child {
+  text-align: left;
+  border: 5px solid blue;
+}
 /* .forms {
   text-align: left;
 } */
@@ -184,4 +195,7 @@ ul {
 
 .box {
   align-items: flex-start;
+  font-size: 24px;
+  padding: 4px;
+  text-align: left;
 }
