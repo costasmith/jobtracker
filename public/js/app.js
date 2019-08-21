@@ -1,13 +1,14 @@
-//========================================================================
+//===============================================================
 // APP.JS => THIS FILE CONTAINS ALL OF THE FUNCTIONS THAT CALL CONTROLLERS
-//========================================================================
+//===============================================================
 
 // ==== Set Up ====
 const app = angular.module('JobApp', [])
 
-//========================================================================
+//===============================================================
 //  APP.CONTROLLER IS THE CONTROLLER FOR ALL FUNCTIONS
-// =======================================================================
+//===============================================================
+
 app.controller('JobController', ['$http', function ($http) {
   // include path enables the use of partials
   this.includePath = 'partials/home.html'
@@ -17,9 +18,9 @@ app.controller('JobController', ['$http', function ($http) {
   // declare controller variable to be at the level of the app.controller
   const controller = this
 
-  // ===================================================================
+  //===================================
   //  THE JOB FUNCTIONS START HERE
-  // ===================================================================
+  //===================================
 
   // ==== CREATE Job ====
   this.createJob = function() {
@@ -147,9 +148,9 @@ app.controller('JobController', ['$http', function ($http) {
       })
     }
 
-//=====================================================================
+//====================================
 //  THE USER FUNCTIONS START HERE
-// ====================================================================
+// ===================================
 
     // ==== Create User ====
   this.createUser = function(){

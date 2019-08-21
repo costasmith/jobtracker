@@ -8,9 +8,9 @@ const router = express.Router();
 const User = require('../models/user.js');
 const bcrypt = require('bcrypt');
 
-//============================================================
+//==========================
 //  USER CONTROLLER ROUTES
-//============================================================
+//==========================
 
 // ==== CREATE User ====
 router.post('/', (req, res) => {
