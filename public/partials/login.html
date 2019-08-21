@@ -29,7 +29,8 @@
     <li class="card" ng-repeat="job in ctrl.jobs">
       <div ng-if="ctrl.loggedInUsername">
         <h2>{{job.position}}</h2>
-        <img src="https://files.slack.com/files-pri/T0351JZQ0-FMJCTF2LV/image.png" alt="working" style="width:100%">
+        <!-- <img src="https://files.slack.com/files-pri/T0351JZQ0-FMJCTF2LV/image.png" alt="working" style="width:100%"> -->
+        <img src="/css/meeting.png" alt="desk" style="width:100%">
         <div class="container">
           <h3>Company: {{job.company}}</h3>
           <h3>Applied: {{job.applied}}</h3>
@@ -66,7 +67,7 @@
             <input type="submit" class="smallButton" value="Submit Change">
       </form>
       <button ng-click="ctrl.deleteJob(job)" class="smallButton">Delete This Job</button>
-    </div>
-  </li>
-</div>
+      </div>
+    </li>
+  </div>
 </ul>
