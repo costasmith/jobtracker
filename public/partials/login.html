@@ -25,7 +25,7 @@
   <input type="submit" class="smallButton" value="Create Job">
 </form>
 <ul>
-  <div class="cardContainer">
+  <div class="cardContainer" ng-if="ctrl.loggedInUsername">
     <li class="card" ng-repeat="job in ctrl.jobs">
       <div ng-if="ctrl.loggedInUsername">
         <h2>{{job.position}}</h2>
