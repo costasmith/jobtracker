@@ -12,15 +12,15 @@
 <form  class="forms" ng-submit="ctrl.createJob()" ng-if="ctrl.loggedInUsername">
   <h3>Create Job</h3><br/>
   <div class="formLeft">
-  <input type="text" ng-model="ctrl.position" placeholder="Position"/><br>
-  <input type="text" ng-model="ctrl.company" placeholder="Company"/><br/>
-  <input type="text" ng-model="ctrl.applied" placeholder="Applied"/><br/>
-  <input type="text" ng-model="ctrl.followedUp" placeholder="Followed Up"/><br/>
-  <input type="text" ng-model="ctrl.salary" placeholder="Salary"/><br/>
-  <input type="text" ng-model="ctrl.url" placeholder="Url"/><br/>
-  <input type="text" ng-model="ctrl.status" placeholder="Notes"/><br/>
-  <input type="checkbox" ng-model="ctrl.resume" placeholder="resume" class="box"/>Resume Submitted<br/>
-  <input type="checkbox" ng-model="ctrl.letter" placeholder="letter" class="box"/>Cover Letter Submitted<br/>
+  <input type="text" ng-model="ctrl.newPosition" placeholder="Position"/><br>
+  <input type="text" ng-model="ctrl.newCompany" placeholder="Company"/><br/>
+  <input type="text" ng-model="ctrl.newApplied" placeholder="Applied"/><br/>
+  <input type="text" ng-model="ctrl.newFollowedUp" placeholder="Followed Up"/><br/>
+  <input type="text" ng-model="ctrl.newSalary" placeholder="Salary"/><br/>
+  <input type="text" ng-model="ctrl.newUrl" placeholder="Url"/><br/>
+  <input type="text" ng-model="ctrl.newNotes" placeholder="Notes"/><br/>
+  <input type="checkbox" ng-model="ctrl.newResume" placeholder="resume" class="box"/>Resume Submitted<br/>
+  <input type="checkbox" ng-model="ctrl.newLetter" placeholder="letter" class="box"/>Cover Letter Submitted<br/>
   </div>
   <input type="submit" class="smallButton" value="Create Job">
 </form>
@@ -36,7 +36,7 @@
           <h3>Did you follow up? {{job.followedUp}}</h3>
           <h3>Salary: {{job.salary}}</h3>
           <h3>URL: {{job.url}}</h3>
-          <h3>Notes: {{job.status}}</h3>
+          <h3>Notes: {{job.notes}}</h3>
           <h3 ng-if="job.resume">Resume Submitted: Yes</h3>
           <h3 ng-if="!job.resume">Resume Submitted: No</h3>
           <h3 ng-if="job.letter">Cover Letter Submitted: Yes</h3>
@@ -59,7 +59,7 @@
                 <input type="text" ng-model="ctrl.followedUp" placeholder="Followed Up"/><br/>
                 <input type="text" ng-model="ctrl.salary" placeholder="Salary"/><br/>
                 <input type="text" ng-model="ctrl.url" placeholder="Url"/><br/>
-                <input type="text" ng-model="ctrl.status" placeholder="Notes"/><br/>
+                <input type="text" ng-model="ctrl.notes" placeholder="Notes"/><br/>
                   <input type="checkbox" ng-model="ctrl.resume" placeholder="resume" class="box"/>Resume Submitted<br/>
                   <input type="checkbox" ng-model="ctrl.letter" placeholder="letter" class="box"/>Cover Letter Submitted<br/>
               </div>
