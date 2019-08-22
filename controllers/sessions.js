@@ -1,44 +1,52 @@
-//==============================================================================
+//=========================================
 //  SESSIONS.JS => CONTROLLER FOR SESSIONS
-//==============================================================================
+//=========================================
 
-// ======================================== Dependencies
+// ==== Dependencies ====
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
 const bcrypt = require('bcrypt');
 
-//==============================================================================
+// ==============================
 //  SESSIONS CONTROLLER ROUTES
-//==============================================================================
-// ======================================== Create Session
+// ==============================
+
+// ==== Create Session ====
 router.post('/', (req, res) => {
-    User.findOne({username:req.body.username}, (err, foundUser) => {
-        if(bcrypt.compareSync(req.body.password, foundUser.password)){
-            req.session.currentUser = foundUser;
-            res.status(201).json({
-                status: 201,
-                message: 'session created'
-            })
-        } else {
-            console.log('hit the else statement');
-            res.status(401).json({
-                status: 401,
-                message: 'login failed'
-            })
-        }
-    })
+ User.findOne({username:req.body.username}, (err, foundUser) => {
+   if (foundUser) {
+       if(bcrypt.compareSync(req.body.password, foundUser.password)){
+         req.session.currentUser = foundUser;
+         res.status(201).json({
+           status: 201,
+           message: 'session created'
+   })} else {
+       console.log('hit the else statement => login failed');
+       res.status(401).json({
+         status: 401,
+         message: 'login failed'
+       })
+   }
+   } else {
+     console.log('hit the else statement => login failed');
+     res.status(401).json({
+       status: 401,
+       message: 'login failed'
+     })
+   }
+ })
 })
 
-// ======================================== Delete Session
+// ==== Delete Session ====
 router.delete('/', (req, res) => {
-    req.session.destroy(() => {
-        res.status(200).json({
-            status: 200,
-            message: 'logout complete'
-        })
+  req.session.destroy(() => {
+    res.status(200).json({
+      status: 200,
+      message: 'logout complete'
     })
+  })
 })
 
-// export the sessions router 
+// export the sessions router
 module.exports = router;

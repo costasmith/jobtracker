@@ -6,7 +6,7 @@ const userSchema = Schema({
     username: String,
     password: String,
     jobList: [JobSchema],
-    job: JobSchema          //  Try to pass a job to put for pushing into array
+    job: JobSchema // Try to pass a job to put for pushing into array
 });
 
 const User = mongoose.model('User', userSchema);

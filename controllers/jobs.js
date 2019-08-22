@@ -1,17 +1,17 @@
-//==============================================================================
+// =======================================================
 //  JOB.JS => CONTROLLER FOR JOBS
-//==============================================================================
+//========================================================
 
-// ======================================== Dependencies
+// ==== Dependencies ====
 const express = require('express')
 const router = express.Router()
 const Jobs = require('../models/job.js')
 
-
-//==============================================================================
+//=========================================================
 //  JOB CONTROLLER ROUTES
-//==============================================================================
-// ======================================== Create Job
+//=========================================================
+
+// ===  Create Job ====
 router.post('/', (req, res) => {
   Jobs.create(req.body, (error, createdJob) => {
     res.json(createdJob)
@@ -19,8 +19,7 @@ router.post('/', (req, res) => {
   })
 })
 
-
-  // ======================================== Update Job
+// ==== Update Job ====
 router.put('/:id', (req, res) => {
   Jobs.findByIdAndUpdate(req.params.id, req.body, {new: true},
   (error, updatedJob) => {
@@ -29,6 +28,5 @@ router.put('/:id', (req, res) => {
   })
 })
 
-
-// export the jobs router
+// ==== export the jobs router ====
 module.exports = router
